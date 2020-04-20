@@ -31,7 +31,11 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,8 +47,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.NameTB = new System.Windows.Forms.TextBox();
             this.AdressTB = new System.Windows.Forms.TextBox();
-            this.ECGChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            ((System.ComponentModel.ISupportInitialize)(this.ECGChart)).BeginInit();
+            this.ECG1Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.ECG2Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.ECG3Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.ECG1Chart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ECG2Chart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ECG3Chart)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -157,43 +165,69 @@
             this.AdressTB.Size = new System.Drawing.Size(249, 38);
             this.AdressTB.TabIndex = 9;
             // 
-            // ECGChart
+            // ECG1Chart
             // 
             chartArea1.Name = "ChartArea1";
-            this.ECGChart.ChartAreas.Add(chartArea1);
+            this.ECG1Chart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
-            this.ECGChart.Legends.Add(legend1);
-            this.ECGChart.Location = new System.Drawing.Point(69, 260);
-            this.ECGChart.Name = "ECGChart";
+            this.ECG1Chart.Legends.Add(legend1);
+            this.ECG1Chart.Location = new System.Drawing.Point(64, 230);
+            this.ECG1Chart.Name = "ECG1Chart";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             series1.Legend = "Legend1";
             series1.Name = "Måling 1";
+            this.ECG1Chart.Series.Add(series1);
+            this.ECG1Chart.Size = new System.Drawing.Size(955, 142);
+            this.ECG1Chart.TabIndex = 10;
+            this.ECG1Chart.Text = "chart1";
+            // 
+            // ECG2Chart
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.ECG2Chart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.ECG2Chart.Legends.Add(legend2);
+            this.ECG2Chart.Location = new System.Drawing.Point(64, 378);
+            this.ECG2Chart.Name = "ECG2Chart";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series2.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             series2.Legend = "Legend1";
             series2.Name = "Måling 2";
+            this.ECG2Chart.Series.Add(series2);
+            this.ECG2Chart.Size = new System.Drawing.Size(954, 142);
+            this.ECG2Chart.TabIndex = 11;
+            this.ECG2Chart.Text = "chart1";
+            // 
+            // ECG3Chart
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.ECG3Chart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.ECG3Chart.Legends.Add(legend3);
+            this.ECG3Chart.Location = new System.Drawing.Point(64, 526);
+            this.ECG3Chart.Name = "ECG3Chart";
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series3.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             series3.Legend = "Legend1";
             series3.Name = "Måling 3";
-            this.ECGChart.Series.Add(series1);
-            this.ECGChart.Series.Add(series2);
-            this.ECGChart.Series.Add(series3);
-            this.ECGChart.Size = new System.Drawing.Size(955, 300);
-            this.ECGChart.TabIndex = 10;
-            this.ECGChart.Text = "chart1";
+            this.ECG3Chart.Series.Add(series3);
+            this.ECG3Chart.Size = new System.Drawing.Size(954, 142);
+            this.ECG3Chart.TabIndex = 12;
+            this.ECG3Chart.Text = "chart1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1090, 611);
-            this.Controls.Add(this.ECGChart);
+            this.ClientSize = new System.Drawing.Size(1090, 685);
+            this.Controls.Add(this.ECG3Chart);
+            this.Controls.Add(this.ECG2Chart);
+            this.Controls.Add(this.ECG1Chart);
             this.Controls.Add(this.AdressTB);
             this.Controls.Add(this.NameTB);
             this.Controls.Add(this.label4);
@@ -206,7 +240,9 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.ECGChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ECG1Chart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ECG2Chart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ECG3Chart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,7 +260,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox NameTB;
         private System.Windows.Forms.TextBox AdressTB;
-        private System.Windows.Forms.DataVisualization.Charting.Chart ECGChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart ECG1Chart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart ECG2Chart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart ECG3Chart;
     }
 }
 
