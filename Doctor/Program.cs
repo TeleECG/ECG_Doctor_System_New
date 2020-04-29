@@ -6,17 +6,20 @@ using System.Windows.Forms;
 
 namespace Doctor
 {
-    static class Program
+    public class Program : IForm
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+        private Get_ECG_Controller _getEcgController;
+
+        public Program(Get_ECG_Controller getEcgController)
+        {
+            _getEcgController = getEcgController;
+        }
         [STAThread]
-        static void Main()
+        public override void Start()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Medical_Display(_getEcgController));
         }
     }
 }

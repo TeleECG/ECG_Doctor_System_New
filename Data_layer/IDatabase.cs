@@ -8,8 +8,14 @@ namespace Doctor
 {
     public interface IDatabase
     {
-        void Get_ECG(string CPRNumber, string Name, string Address, DateTime Date, List<double> ECG, int Pulse,
-            int HRV);
+        string CPRNumber { get; set; }
+        string Name { get; set; }
+        string Address { get; set; }
+        DateTime Date { get; set; }
+        List<double> ECG { get; set; }
+        int Pulse { get; set; }
+        int HRV { get; set; }
+        void Get_ECG();
     }
 
 }

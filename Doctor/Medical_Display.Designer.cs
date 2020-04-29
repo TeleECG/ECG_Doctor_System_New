@@ -1,6 +1,6 @@
 ﻿namespace Doctor
 {
-    partial class Form1
+    partial class Medical_Display
     {
         /// <summary>
         /// Required designer variable.
@@ -106,6 +106,7 @@
             this.SearchB.TabIndex = 4;
             this.SearchB.Text = "Søg";
             this.SearchB.UseVisualStyleBackColor = false;
+            this.SearchB.Click += new System.EventHandler(this.SearchB_Click);
             // 
             // DateB
             // 
@@ -118,6 +119,7 @@
             this.DateB.TabIndex = 5;
             this.DateB.Text = "Vis måling";
             this.DateB.UseVisualStyleBackColor = false;
+            this.DateB.Click += new System.EventHandler(this.DateB_Click);
             // 
             // label3
             // 
@@ -219,7 +221,7 @@
             this.ECG3Chart.TabIndex = 12;
             this.ECG3Chart.Text = "chart1";
             // 
-            // Form1
+            // Medical_Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -238,8 +240,8 @@
             this.Controls.Add(this.CPRTB);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Medical_Display";
+            this.Text = "Medical_Display";
             ((System.ComponentModel.ISupportInitialize)(this.ECG1Chart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ECG2Chart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ECG3Chart)).EndInit();

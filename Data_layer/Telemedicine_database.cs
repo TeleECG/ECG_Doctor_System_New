@@ -1,23 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
+using Doctor;
 
-namespace Doctor
+namespace Data_layer
 {
-    public class Telemedecine_database : IDatabase
+    public class Telemedicine_database : IDatabase
     {
         private SqlConnection _connection;
         private const String _database = "NameHere";
+        public string CPRNumber { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public DateTime Date { get; set; }
+        public List<double> ECG { get; set; }
+        public int Pulse { get; set; }
+        public int HRV { get; set; }
 
-        public Telemedecine_database()
+        public Telemedicine_database()
         {
             _connection = new SqlConnection("Data Source=st-i4dab.uni.au.dk; Initial Catalog=" + _database + "; " +
                                             "Persist Security Info=True; User ID=" + _database + "; Password=" + _database + "");
         }
-        public void Get_ECG(string CPRNumber, string Name, string Address, DateTime Date, List<double> ECG, int Pulse, int HRV)
+        public void Get_ECG()
         {
             try
             {

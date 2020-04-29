@@ -46,7 +46,7 @@
   <ItemGroup>
     <Compile Include="IDatabase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Telemedecine_database.cs" />
+    <Compile Include="Telemedicine_database.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
