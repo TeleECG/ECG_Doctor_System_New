@@ -22,6 +22,7 @@ namespace Doctor
         {
             _telemedicine_Database = telemedicine_Database;
         }
+
         public void Get_ECG_Measurement()
         {
             _telemedicine_Database.Get_ECG(CPRNumber, Name, Address, Date, ECG, Pulse, HRV);
