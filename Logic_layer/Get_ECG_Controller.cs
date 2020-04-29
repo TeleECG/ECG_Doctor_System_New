@@ -14,7 +14,7 @@ namespace Doctor
         public string Name { get; set; }
         public string Address { get; set; }
         public DateTime Date { get; set; }
-        public List<List<double>> ECG { get; set; }
+        public List<double> ECG { get; set; }
         public int Pulse { get; set; }
         public int HRV { get; set; }
 
