@@ -44,5 +44,11 @@
     <Compile Include="Get_ECG_Controller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data_layer\Data_layer.csproj">
+      <Project>{43778fd5-0c61-49a0-a790-10f8691886d8}</Project>
+      <Name>Data_layer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
