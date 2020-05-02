@@ -184,6 +184,7 @@
             this.ECG1Chart.Size = new System.Drawing.Size(955, 142);
             this.ECG1Chart.TabIndex = 10;
             this.ECG1Chart.Text = "chart1";
+            this.ECG1Chart.Visible = false;
             // 
             // ECG2Chart
             // 
@@ -202,6 +203,7 @@
             this.ECG2Chart.Size = new System.Drawing.Size(954, 142);
             this.ECG2Chart.TabIndex = 11;
             this.ECG2Chart.Text = "chart1";
+            this.ECG2Chart.Visible = false;
             // 
             // ECG3Chart
             // 
@@ -220,6 +222,7 @@
             this.ECG3Chart.Size = new System.Drawing.Size(954, 142);
             this.ECG3Chart.TabIndex = 12;
             this.ECG3Chart.Text = "chart1";
+            this.ECG3Chart.Visible = false;
             // 
             // Medical_Display
             // 

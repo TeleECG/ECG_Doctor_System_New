@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain;
 
-namespace Doctor
+namespace Domain
 {
-    public interface IDatabase
+    class Program
     {
-        void Get_ECG(ECG_Meassure ecgMeassure);
+        static void Main(string[] args)
+        {
+        }
     }
-
 }

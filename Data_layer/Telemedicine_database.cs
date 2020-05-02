@@ -2,27 +2,21 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using Doctor;
+using Domain;
 
 namespace Data_layer
 {
     public class Telemedicine_database : IDatabase
     {
         private SqlConnection _connection;
-        private const String _database = "NameHere";
-        public string CPRNumber { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
-        public DateTime Date { get; set; }
-        public List<double> ECG { get; set; }
-        public int Pulse { get; set; }
-        public int HRV { get; set; }
+        private const String _database = "F20ST4PRJ4TeleMedDatabase";
 
         public Telemedicine_database()
         {
             _connection = new SqlConnection("Data Source=st-i4dab.uni.au.dk; Initial Catalog=" + _database + "; " +
                                             "Persist Security Info=True; User ID=" + _database + "; Password=" + _database + "");
         }
-        public void Get_ECG()
+        public void Get_ECG(ECG_Meassure ecgMeassure)
         {
             try
             {
@@ -46,13 +40,13 @@ namespace Data_layer
                             _data.Add(BitConverter.ToDouble(bytesArray, i));
                         }
 
-                        CPRNumber = "CPR";
-                        Name = "Name";
-                        Address = "Address";
-                        Date = Convert.ToDateTime("Date");
-                        ECG = _data; //Skal det være en list af list???
-                        Pulse = Convert.ToInt32("Pulse");
-                        HRV = Convert.ToInt32("HRV");
+                        ecgMeassure.CPRNumber = "CPR";
+                        ecgMeassure.Name = "Name";
+                        ecgMeassure.Address = "Address";
+                        ecgMeassure.Date = Convert.ToDateTime("Date");
+                        ecgMeassure.ECG = _data; //Skal det være en list af list???
+                        ecgMeassure.Pulse = Convert.ToInt32("Pulse");
+                        ecgMeassure.HRV = Convert.ToInt32("HRV");
                     }
                 }
 

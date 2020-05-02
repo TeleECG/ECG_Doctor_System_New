@@ -82,6 +82,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{680a8f3b-f11a-4c3a-9975-461a75349be5}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Logic_layer\Logic_layer.csproj">
       <Project>{42498795-c942-4024-86b4-7ac3930ef272}</Project>
       <Name>Logic_layer</Name>

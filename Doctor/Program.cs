@@ -14,6 +14,7 @@ namespace Doctor
         {
             _getEcgController = getEcgController;
         }
+
         [STAThread]
         public override void Start()
         {
