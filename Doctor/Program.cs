@@ -20,7 +20,7 @@ namespace Doctor
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Medical_Display(_getEcgController));
+            Application.Run(new Medical_Display(_getEcgController,));
         }
     }
 }
