@@ -25,7 +25,7 @@ namespace MainApp
             TeleMedDb.ECGLead _ecgLead = new TeleMedDb.ECGLead();
 
             //Presentationlayer 
-            IForm _GUI = new Doctor.Program(_teleMedDb, _patientMeasurement, _ecgMeasurement, _ecgLead);
+            IForm _GUI = new Doctor.Program(_teleMedDb, _patientMeasurement);
             _GUI.Start();
 
         }

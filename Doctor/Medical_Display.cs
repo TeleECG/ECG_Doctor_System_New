@@ -16,17 +16,13 @@ namespace Doctor
     {
         private TeleMedDb _teleMedDb;
         private TeleMedDb.PatientMeasurement _patientMeasurement;
-        private TeleMedDb.ECGMeasurement _ecgMeasurement;
-        private TeleMedDb.ECGLead _ecgLead;
         List<TeleMedDb.PatientMeasurement> _patient = new List<TeleMedDb.PatientMeasurement>();
         List<TeleMedDb.ECGMeasurement> _ecgMeasurementsList = new List<TeleMedDb.ECGMeasurement>();
 
-        public Medical_Display(TeleMedDb teleMedDb, TeleMedDb.PatientMeasurement patientMeasurement, TeleMedDb.ECGMeasurement ecgMeasurement, TeleMedDb.ECGLead ecgLead)
+        public Medical_Display(TeleMedDb teleMedDb, TeleMedDb.PatientMeasurement patientMeasurement)
         {
             _teleMedDb = teleMedDb;
             _patientMeasurement = patientMeasurement;
-            _ecgMeasurement = ecgMeasurement;
-            _ecgLead = ecgLead;
             InitializeComponent();
         }
 
