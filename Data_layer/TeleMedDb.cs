@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -22,27 +23,49 @@ namespace Data_layer
                                  "Persist Security Info=True; User ID=" + _database + "; Password=" + _database + "");
         } // Åbner forbindelse til database og holder øje med at der er konsistens mellem database og koden
 
+        public List<PatientMeasurement> GetPatient(string CPR)
+        {
+           using (var context = new TeleMedDb())
+           {
+                var patientMeasurement = context.PatientMeasurements.Where(patient => patient.CPRNumber == CPR).ToList();
+                return patientMeasurement;
+           }
+        }
+
+        public PatientMeasurement GetMeasurementsAndLeads(int ID)
+        {
+            using (var context = new TeleMedDb())
+            {
+                var patientWithMeasurement = context.PatientMeasurements.Where(patient => patient.PatientMeasurementId == ID).
+                    Include(measure => measure.ECGMeasurements).
+                    ThenInclude(leads => leads.ECGLeads).FirstOrDefault();
+
+                return patientWithMeasurement;
+            }
+        }
+
         public class PatientMeasurement // Patient klassen sendes i databasen med følgende: 
         {
             public PatientMeasurement() //Default constructor
             {
                 ECGMeasurements = new List<ECGMeasurement>();
             }
-            public PatientMeasurement(string cPRNumber, string name, string address)
-            {
-                ECGMeasurements = new List<ECGMeasurement>();
-                CPRNumber = cPRNumber;
-                Name = name;
-                Address = address;
-                Date = DateTime.Now;
-                Pulse = 0;
-                HRV = 0;
 
-                for (int i = 1; i < 4; i++)
-                {
-                    ECGMeasurements.Add(new ECGMeasurement(i));
-                }
-            }
+            //public PatientMeasurement(string cPRNumber, string name, string address)
+            //{
+            //    ECGMeasurements = new List<ECGMeasurement>();
+            //    CPRNumber = cPRNumber;
+            //    Name = name;
+            //    Address = address;
+            //    Date = DateTime.Now;
+            //    Pulse = 0;
+            //    HRV = 0;
+
+            //    for (int i = 1; i < 4; i++)
+            //    {
+            //        ECGMeasurements.Add(new ECGMeasurement(i));
+            //    }
+            //}
 
             public int PatientMeasurementId { get; set; } //Et autogenerede Id-nummer, der kun passer til den specifikke patient. 
             public string CPRNumber { get; set; } // CPR-nummer tilhørende patienten, som indtastes på brugergrænsefladen.
@@ -60,15 +83,16 @@ namespace Data_layer
             {
                 ECGLeads = new List<ECGLead>();
             }
-            public ECGMeasurement(int measurementNumber)
-            {
-                ECGLeads = new List<ECGLead>();
-                MeasurementNumber = measurementNumber;
-                for (int i = 1; i < 4; i++)
-                {
-                    ECGLeads.Add(new ECGLead(i));
-                }
-            }
+
+            //public ECGMeasurement(int measurementNumber)
+            //{
+            //    ECGLeads = new List<ECGLead>();
+            //    MeasurementNumber = measurementNumber;
+            //    for (int i = 1; i < 4; i++)
+            //    {
+            //        ECGLeads.Add(new ECGLead(i));
+            //    }
+            //}
 
             public int ECGMeasurementId { get; set; } //Et autogenerede Id-nummer, der kun passer til den specifikke ECGMeasurement. 
             public PatientMeasurement PatientMeasurement { get; set; } //Objekt af Patient klassen
@@ -78,10 +102,16 @@ namespace Data_layer
         }
         public class ECGLead // ECGMeasurement klassen sendes i databasen og kobles op med ECGMeasurementobjektet med følgende: 
         {
-            public ECGLead(int leadNumber)
+            public ECGLead()
             {
-                LeadNumber = leadNumber;
+                
             }
+
+            //public ECGLead(int leadNumber)
+            //{
+            //    LeadNumber = leadNumber;
+            //}
+
             public int ECGLeadId { get; set; } //Et autogenerede Id-nummer, der kun passer til det specifikke ECGLead. 
             public ECGMeasurement ECGMeasurement { get; set; } //Objekt af ECGMeasurement klassen 
             public int ECGMeasurementId { get; set; } //Tilknytter ECGMeasurement til den specifikke ECGMeasurement via ECGMeasurementId
