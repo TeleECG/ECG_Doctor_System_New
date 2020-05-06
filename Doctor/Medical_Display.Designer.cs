@@ -50,6 +50,18 @@
             this.ECG1Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.ECG2Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.ECG3Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.Puls1 = new System.Windows.Forms.Label();
+            this.HRV1 = new System.Windows.Forms.Label();
+            this.Puls2 = new System.Windows.Forms.Label();
+            this.Hrv2 = new System.Windows.Forms.Label();
+            this.Hrv3 = new System.Windows.Forms.Label();
+            this.Puls3 = new System.Windows.Forms.Label();
+            this.puls1l = new System.Windows.Forms.Label();
+            this.hrv1l = new System.Windows.Forms.Label();
+            this.hrv2l = new System.Windows.Forms.Label();
+            this.puls2l = new System.Windows.Forms.Label();
+            this.hrv3l = new System.Windows.Forms.Label();
+            this.puls3l = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ECG1Chart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ECG2Chart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ECG3Chart)).BeginInit();
@@ -224,12 +236,156 @@
             this.ECG3Chart.Text = "chart1";
             this.ECG3Chart.Visible = false;
             // 
+            // Puls1
+            // 
+            this.Puls1.AutoSize = true;
+            this.Puls1.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Puls1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Puls1.Location = new System.Drawing.Point(1055, 230);
+            this.Puls1.Name = "Puls1";
+            this.Puls1.Size = new System.Drawing.Size(56, 27);
+            this.Puls1.TabIndex = 13;
+            this.Puls1.Text = "Puls:";
+            // 
+            // HRV1
+            // 
+            this.HRV1.AutoSize = true;
+            this.HRV1.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HRV1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.HRV1.Location = new System.Drawing.Point(1055, 287);
+            this.HRV1.Name = "HRV1";
+            this.HRV1.Size = new System.Drawing.Size(56, 27);
+            this.HRV1.TabIndex = 14;
+            this.HRV1.Text = "HRV:";
+            // 
+            // Puls2
+            // 
+            this.Puls2.AutoSize = true;
+            this.Puls2.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Puls2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Puls2.Location = new System.Drawing.Point(1055, 378);
+            this.Puls2.Name = "Puls2";
+            this.Puls2.Size = new System.Drawing.Size(56, 27);
+            this.Puls2.TabIndex = 15;
+            this.Puls2.Text = "Puls:";
+            // 
+            // Hrv2
+            // 
+            this.Hrv2.AutoSize = true;
+            this.Hrv2.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Hrv2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Hrv2.Location = new System.Drawing.Point(1055, 436);
+            this.Hrv2.Name = "Hrv2";
+            this.Hrv2.Size = new System.Drawing.Size(56, 27);
+            this.Hrv2.TabIndex = 16;
+            this.Hrv2.Text = "HRV:";
+            // 
+            // Hrv3
+            // 
+            this.Hrv3.AutoSize = true;
+            this.Hrv3.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Hrv3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Hrv3.Location = new System.Drawing.Point(1055, 584);
+            this.Hrv3.Name = "Hrv3";
+            this.Hrv3.Size = new System.Drawing.Size(56, 27);
+            this.Hrv3.TabIndex = 18;
+            this.Hrv3.Text = "HRV:";
+            // 
+            // Puls3
+            // 
+            this.Puls3.AutoSize = true;
+            this.Puls3.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Puls3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Puls3.Location = new System.Drawing.Point(1055, 526);
+            this.Puls3.Name = "Puls3";
+            this.Puls3.Size = new System.Drawing.Size(56, 27);
+            this.Puls3.TabIndex = 17;
+            this.Puls3.Text = "Puls:";
+            // 
+            // puls1l
+            // 
+            this.puls1l.AutoSize = true;
+            this.puls1l.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.puls1l.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.puls1l.Location = new System.Drawing.Point(1158, 224);
+            this.puls1l.Name = "puls1l";
+            this.puls1l.Size = new System.Drawing.Size(51, 35);
+            this.puls1l.TabIndex = 19;
+            this.puls1l.Text = "hej";
+            // 
+            // hrv1l
+            // 
+            this.hrv1l.AutoSize = true;
+            this.hrv1l.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hrv1l.ForeColor = System.Drawing.Color.LimeGreen;
+            this.hrv1l.Location = new System.Drawing.Point(1158, 287);
+            this.hrv1l.Name = "hrv1l";
+            this.hrv1l.Size = new System.Drawing.Size(51, 35);
+            this.hrv1l.TabIndex = 20;
+            this.hrv1l.Text = "hej";
+            // 
+            // hrv2l
+            // 
+            this.hrv2l.AutoSize = true;
+            this.hrv2l.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hrv2l.ForeColor = System.Drawing.Color.LimeGreen;
+            this.hrv2l.Location = new System.Drawing.Point(1159, 436);
+            this.hrv2l.Name = "hrv2l";
+            this.hrv2l.Size = new System.Drawing.Size(51, 35);
+            this.hrv2l.TabIndex = 22;
+            this.hrv2l.Text = "hej";
+            // 
+            // puls2l
+            // 
+            this.puls2l.AutoSize = true;
+            this.puls2l.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.puls2l.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.puls2l.Location = new System.Drawing.Point(1159, 378);
+            this.puls2l.Name = "puls2l";
+            this.puls2l.Size = new System.Drawing.Size(51, 35);
+            this.puls2l.TabIndex = 21;
+            this.puls2l.Text = "hej";
+            // 
+            // hrv3l
+            // 
+            this.hrv3l.AutoSize = true;
+            this.hrv3l.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hrv3l.ForeColor = System.Drawing.Color.LimeGreen;
+            this.hrv3l.Location = new System.Drawing.Point(1158, 578);
+            this.hrv3l.Name = "hrv3l";
+            this.hrv3l.Size = new System.Drawing.Size(51, 35);
+            this.hrv3l.TabIndex = 24;
+            this.hrv3l.Text = "hej";
+            // 
+            // puls3l
+            // 
+            this.puls3l.AutoSize = true;
+            this.puls3l.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.puls3l.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.puls3l.Location = new System.Drawing.Point(1159, 520);
+            this.puls3l.Name = "puls3l";
+            this.puls3l.Size = new System.Drawing.Size(51, 35);
+            this.puls3l.TabIndex = 23;
+            this.puls3l.Text = "hej";
+            // 
             // Medical_Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1090, 685);
+            this.ClientSize = new System.Drawing.Size(1357, 685);
+            this.Controls.Add(this.hrv3l);
+            this.Controls.Add(this.puls3l);
+            this.Controls.Add(this.hrv2l);
+            this.Controls.Add(this.puls2l);
+            this.Controls.Add(this.hrv1l);
+            this.Controls.Add(this.puls1l);
+            this.Controls.Add(this.Hrv3);
+            this.Controls.Add(this.Puls3);
+            this.Controls.Add(this.Hrv2);
+            this.Controls.Add(this.Puls2);
+            this.Controls.Add(this.HRV1);
+            this.Controls.Add(this.Puls1);
             this.Controls.Add(this.ECG3Chart);
             this.Controls.Add(this.ECG2Chart);
             this.Controls.Add(this.ECG1Chart);
@@ -268,6 +424,18 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart ECG1Chart;
         private System.Windows.Forms.DataVisualization.Charting.Chart ECG2Chart;
         private System.Windows.Forms.DataVisualization.Charting.Chart ECG3Chart;
+        private System.Windows.Forms.Label Puls1;
+        private System.Windows.Forms.Label HRV1;
+        private System.Windows.Forms.Label Puls2;
+        private System.Windows.Forms.Label Hrv2;
+        private System.Windows.Forms.Label Hrv3;
+        private System.Windows.Forms.Label Puls3;
+        private System.Windows.Forms.Label puls1l;
+        private System.Windows.Forms.Label hrv1l;
+        private System.Windows.Forms.Label hrv2l;
+        private System.Windows.Forms.Label puls2l;
+        private System.Windows.Forms.Label hrv3l;
+        private System.Windows.Forms.Label puls3l;
     }
 }
 
