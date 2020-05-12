@@ -181,6 +181,12 @@
             // 
             // ECG1Chart
             // 
+            chartArea1.AxisX.MajorGrid.Interval = 0.2D;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.OrangeRed;
+            chartArea1.AxisX.MajorGrid.LineWidth = 2;
+            chartArea1.AxisX.MinorGrid.Enabled = true;
+            chartArea1.AxisX.MinorGrid.Interval = 0.04D;
+            chartArea1.AxisX.MinorGrid.LineColor = System.Drawing.Color.OrangeRed;
             chartArea1.Name = "ChartArea1";
             this.ECG1Chart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
@@ -200,6 +206,12 @@
             // 
             // ECG2Chart
             // 
+            chartArea2.AxisX.MajorGrid.Interval = 0.2D;
+            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.OrangeRed;
+            chartArea2.AxisX.MajorGrid.LineWidth = 2;
+            chartArea2.AxisX.MinorGrid.Enabled = true;
+            chartArea2.AxisX.MinorGrid.Interval = 0.04D;
+            chartArea2.AxisX.MinorGrid.LineColor = System.Drawing.Color.OrangeRed;
             chartArea2.Name = "ChartArea1";
             this.ECG2Chart.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
@@ -219,6 +231,12 @@
             // 
             // ECG3Chart
             // 
+            chartArea3.AxisX.MajorGrid.Interval = 0.2D;
+            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.OrangeRed;
+            chartArea3.AxisX.MajorGrid.LineWidth = 2;
+            chartArea3.AxisX.MinorGrid.Enabled = true;
+            chartArea3.AxisX.MinorGrid.Interval = 0.04D;
+            chartArea3.AxisX.MinorGrid.LineColor = System.Drawing.Color.OrangeRed;
             chartArea3.Name = "ChartArea1";
             this.ECG3Chart.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
@@ -317,7 +335,7 @@
             // 
             this.hrv1l.AutoSize = true;
             this.hrv1l.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hrv1l.ForeColor = System.Drawing.Color.LimeGreen;
+            this.hrv1l.ForeColor = System.Drawing.Color.Gold;
             this.hrv1l.Location = new System.Drawing.Point(1158, 287);
             this.hrv1l.Name = "hrv1l";
             this.hrv1l.Size = new System.Drawing.Size(51, 35);
@@ -328,7 +346,7 @@
             // 
             this.hrv2l.AutoSize = true;
             this.hrv2l.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hrv2l.ForeColor = System.Drawing.Color.LimeGreen;
+            this.hrv2l.ForeColor = System.Drawing.Color.Gold;
             this.hrv2l.Location = new System.Drawing.Point(1159, 436);
             this.hrv2l.Name = "hrv2l";
             this.hrv2l.Size = new System.Drawing.Size(51, 35);
@@ -350,7 +368,7 @@
             // 
             this.hrv3l.AutoSize = true;
             this.hrv3l.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hrv3l.ForeColor = System.Drawing.Color.LimeGreen;
+            this.hrv3l.ForeColor = System.Drawing.Color.Gold;
             this.hrv3l.Location = new System.Drawing.Point(1158, 578);
             this.hrv3l.Name = "hrv3l";
             this.hrv3l.Size = new System.Drawing.Size(51, 35);
