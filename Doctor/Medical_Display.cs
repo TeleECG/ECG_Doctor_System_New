@@ -146,8 +146,7 @@ namespace Doctor
             _ecgMeasurementsList = _patientMeasurement.ECGMeasurements.ToList(); //Høre lige Jesper om dette er rigtigt
             
             int counterMeasure = 0;
-            double xtime = 0;
-            List<double> ecgLeadsList = new List<double>();
+           
             Chart helperChart = null;
 
             ECG1Chart.Visible = true;
@@ -178,6 +177,9 @@ namespace Doctor
                     puls3l.Text = Convert.ToString(measure.Pulse);
                     hrv3l.Text = Convert.ToString(measure.HRV);
                 }
+
+                double xtime = 0;
+                List<double> ecgLeadsList = new List<double>();
 
                 foreach (var lead in measure.ECGLeads) // Vi kigger på hver lead til den pågældende måling 
                 {
