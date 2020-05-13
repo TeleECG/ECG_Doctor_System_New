@@ -59,6 +59,27 @@ namespace Doctor
             }
             return binaryDataResult;
         }
+
+        private List<double> LeadReader()
+        {
+            using (var reader = new StreamReader(@"C:\Users\ina-m\OneDrive\Dokumenter\4. semester\Projekt\EKG-signaler\1Lead.csv"))
+            {
+                List<double> listA = new List<double>();
+                var h1= reader.ReadLine();
+               var h2 =  reader.ReadLine();
+                while (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+                    var values = line.Split(',');
+     
+                    listA.Add(Convert.ToDouble((values[1]))); //Prøv parse i stedet for konvertering til double 
+
+                }
+
+                return listA;
+            }
+        }
+
         private void SearchB_Click(object sender, EventArgs e)
         {
             _patient = _teleMedDb.GetPatient(CPRTB.Text);
@@ -81,21 +102,23 @@ namespace Doctor
         private void DateB_Click(object sender, EventArgs e)
         {
             //int Id = 0;
+            List<double> liste = LeadReader();
 
-            byte[] test = ReadCsvLead1();
-            double xtid = 0;
-            List<double> ecgLeadsList = new List<double>();
-            ECG1Chart.Visible = true;
-            for (int i = 2; i < test.Length-4; i += 8)
-            {
-                ecgLeadsList.Add(BitConverter.ToDouble(test, i));
-            }
 
-            foreach (var VARIABLE in ecgLeadsList)
-            {
-                ECG1Chart.Series[0].Points.AddXY(xtid, VARIABLE);
-                xtid += 0.005;
-            }
+            //byte[] test = ReadCsvLead1();
+            //double xtid = 0;
+            //List<double> ecgLeadsList = new List<double>();
+            //ECG1Chart.Visible = true;
+            //for (int i = 2; i < test.Length-4; i += 8)
+            //{
+            //    ecgLeadsList.Add(BitConverter.ToDouble(test, i));
+            //}
+
+            //foreach (var VARIABLE in ecgLeadsList)
+            //{
+            //    ECG1Chart.Series[0].Points.AddXY(xtid, VARIABLE);
+            //    xtid += 0.005;
+            //}
 
 
             //for (int i = 0; i < _patient.Count; i++)
