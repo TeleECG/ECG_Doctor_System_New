@@ -145,6 +145,7 @@ namespace Doctor
             _ecgMeasurementsList = _patientMeasurement.ECGMeasurements.ToList(); //Høre lige Jesper om dette er rigtigt
             
             int counterMeasure = 0;
+            double xtime = 0;
             Chart helperChart = null;
 
             ECG1Chart.Visible = true;
@@ -182,10 +183,10 @@ namespace Doctor
                     {
                         List<double> ecgLeadsList = new List<double>();
                         ecgLeadsList.Add(BitConverter.ToDouble(lead.ECGLeadValues, i)); // Converterer fra byte array til list double
-                        helperChart.Series[coutnerLeads].Points.DataBindXY(ecgLeadsList); // Tegner graf
+                        helperChart.Series[coutnerLeads].Points.AddXY(xtime,ecgLeadsList); // Tegner graf
+                        xtime += 0.002;
 
                     }
-
                     coutnerLeads++;
                 }
 
