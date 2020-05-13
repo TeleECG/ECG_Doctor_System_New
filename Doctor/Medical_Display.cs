@@ -10,29 +10,25 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using Data_layer;
-
+using Data_layer.Data;
 
 
 namespace Doctor
 {
     public partial class Medical_Display : Form
     {
-        private string _pathLead1 = @"C:\Users\ina-m\OneDrive\Dokumenter\4. semester\Projekt\EKG-signaler\1Lead.csv";
+        private TeleMedUtilities _teleMedDb;
+        private F20ST4PRJ4TeleMedDatabaseContext context;
+        List<PatientMeasurements> _patient = new List<PatientMeasurements>();
+        List<ECGMeasurements> _ecgMeasurementsList = new List<ECGMeasurements>();
 
-        
-
-        private TeleMedDb _teleMedDb;
-        private TeleMedDb.PatientMeasurement _patientMeasurement;
-        List<TeleMedDb.PatientMeasurement> _patient = new List<TeleMedDb.PatientMeasurement>();
-        List<TeleMedDb.ECGMeasurement> _ecgMeasurementsList = new List<TeleMedDb.ECGMeasurement>();
-
-        public Medical_Display(TeleMedDb teleMedDb, TeleMedDb.PatientMeasurement patientMeasurement)
+        public Medical_Display(TeleMedUtilities teleMedDb)
         {
             _teleMedDb = teleMedDb;
-            _patientMeasurement = patientMeasurement;
             InitializeComponent();
         }
 
+       
         private List<double> LeadReader1()
         {
             using (var reader = new StreamReader(@"C:\Users\Mie\Cloud\MiesTing\Universitet - ST\4.Semester ST\4. Semesterprojekt\Software\ECG_Doctor_System_New\Data_layer\1Lead.csv"))
@@ -110,6 +106,7 @@ namespace Doctor
 
         private void DateB_Click(object sender, EventArgs e)
         {
+           
             List<double> lead1Liste = LeadReader1();
             List<double> lead2Liste = LeadReader2();
             List<double> lead3Liste = LeadReader3();
@@ -143,7 +140,7 @@ namespace Doctor
             //    }
             //}
 
-            //_patientMeasurement = _teleMedDb.GetMeasurementsAndLeads(Id);
+             //var _patientMeasurement = _teleMedDb.GetMeasurementsAndLeads(Id);
 
             //_ecgMeasurementsList = _patientMeasurement.ECGMeasurements;
 

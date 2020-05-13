@@ -182,6 +182,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\ECGLeads.cs" />
+    <Compile Include="Data\ECGMeasurements.cs" />
+    <Compile Include="Data\F20ST4PRJ4TeleMedDatabaseContext.cs" />
+    <Compile Include="Data\PatientMeasurements.cs" />
     <Compile Include="Migrations\20200505122854_Initial.cs" />
     <Compile Include="Migrations\20200505122854_Initial.designer.cs">
       <DependentUpon>20200505122854_Initial.cs</DependentUpon>

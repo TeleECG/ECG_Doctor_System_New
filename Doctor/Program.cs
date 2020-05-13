@@ -4,19 +4,20 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Data_layer;
+using Data_layer.Data;
 
 
 namespace Doctor
 {
     public class Program : IForm
     {
-        private TeleMedDb _teleMedDb;
-        private TeleMedDb.PatientMeasurement _patientMeasurement;
+        private TeleMedUtilities _teleMedDb;
+        
 
-        public Program(TeleMedDb teleMedDb, TeleMedDb.PatientMeasurement patientMeasurement)
+        public Program(TeleMedUtilities teleMedDb)
         {
             _teleMedDb = teleMedDb;
-            _patientMeasurement = patientMeasurement;
+            
         }
 
         [STAThread]
@@ -24,7 +25,7 @@ namespace Doctor
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Medical_Display(_teleMedDb,_patientMeasurement));
+            Application.Run(new Medical_Display(_teleMedDb));
         }
     }
 }

@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CPRTB = new System.Windows.Forms.TextBox();
@@ -187,78 +187,78 @@
             // 
             // ECG1Chart
             // 
-            chartArea4.AxisX.MajorGrid.Interval = 0.2D;
-            chartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.OrangeRed;
-            chartArea4.AxisX.MajorGrid.LineWidth = 2;
-            chartArea4.AxisX.MinorGrid.Enabled = true;
-            chartArea4.AxisX.MinorGrid.Interval = 0.04D;
-            chartArea4.AxisX.MinorGrid.LineColor = System.Drawing.Color.OrangeRed;
-            chartArea4.Name = "ChartArea1";
-            this.ECG1Chart.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.ECG1Chart.Legends.Add(legend4);
-            this.ECG1Chart.Location = new System.Drawing.Point(57, 184);
+            chartArea1.AxisX.MajorGrid.Interval = 0.2D;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.OrangeRed;
+            chartArea1.AxisX.MajorGrid.LineWidth = 2;
+            chartArea1.AxisX.MinorGrid.Enabled = true;
+            chartArea1.AxisX.MinorGrid.Interval = 0.04D;
+            chartArea1.AxisX.MinorGrid.LineColor = System.Drawing.Color.OrangeRed;
+            chartArea1.Name = "ChartArea1";
+            this.ECG1Chart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.ECG1Chart.Legends.Add(legend1);
+            this.ECG1Chart.Location = new System.Drawing.Point(57, 169);
             this.ECG1Chart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ECG1Chart.Name = "ECG1Chart";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series4.Legend = "Legend1";
-            series4.Name = "Måling 1";
-            this.ECG1Chart.Series.Add(series4);
-            this.ECG1Chart.Size = new System.Drawing.Size(849, 114);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.Legend = "Legend1";
+            series1.Name = "Måling 1";
+            this.ECG1Chart.Series.Add(series1);
+            this.ECG1Chart.Size = new System.Drawing.Size(989, 167);
             this.ECG1Chart.TabIndex = 10;
             this.ECG1Chart.Text = "chart1";
             this.ECG1Chart.Visible = false;
             // 
             // ECG2Chart
             // 
-            chartArea5.AxisX.MajorGrid.Interval = 0.2D;
-            chartArea5.AxisX.MajorGrid.LineColor = System.Drawing.Color.OrangeRed;
-            chartArea5.AxisX.MajorGrid.LineWidth = 2;
-            chartArea5.AxisX.MinorGrid.Enabled = true;
-            chartArea5.AxisX.MinorGrid.Interval = 0.04D;
-            chartArea5.AxisX.MinorGrid.LineColor = System.Drawing.Color.OrangeRed;
-            chartArea5.Name = "ChartArea1";
-            this.ECG2Chart.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.ECG2Chart.Legends.Add(legend5);
-            this.ECG2Chart.Location = new System.Drawing.Point(57, 302);
+            chartArea2.AxisX.MajorGrid.Interval = 0.2D;
+            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.OrangeRed;
+            chartArea2.AxisX.MajorGrid.LineWidth = 2;
+            chartArea2.AxisX.MinorGrid.Enabled = true;
+            chartArea2.AxisX.MinorGrid.Interval = 0.04D;
+            chartArea2.AxisX.MinorGrid.LineColor = System.Drawing.Color.OrangeRed;
+            chartArea2.Name = "ChartArea1";
+            this.ECG2Chart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.ECG2Chart.Legends.Add(legend2);
+            this.ECG2Chart.Location = new System.Drawing.Point(57, 340);
             this.ECG2Chart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ECG2Chart.Name = "ECG2Chart";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series5.Legend = "Legend1";
-            series5.Name = "Måling 2";
-            this.ECG2Chart.Series.Add(series5);
-            this.ECG2Chart.Size = new System.Drawing.Size(848, 114);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.Legend = "Legend1";
+            series2.Name = "Måling 2";
+            this.ECG2Chart.Series.Add(series2);
+            this.ECG2Chart.Size = new System.Drawing.Size(989, 161);
             this.ECG2Chart.TabIndex = 11;
             this.ECG2Chart.Text = "chart1";
             this.ECG2Chart.Visible = false;
             // 
             // ECG3Chart
             // 
-            chartArea6.AxisX.MajorGrid.Interval = 0.2D;
-            chartArea6.AxisX.MajorGrid.LineColor = System.Drawing.Color.OrangeRed;
-            chartArea6.AxisX.MajorGrid.LineWidth = 2;
-            chartArea6.AxisX.MinorGrid.Enabled = true;
-            chartArea6.AxisX.MinorGrid.Interval = 0.04D;
-            chartArea6.AxisX.MinorGrid.LineColor = System.Drawing.Color.OrangeRed;
-            chartArea6.Name = "ChartArea1";
-            this.ECG3Chart.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.ECG3Chart.Legends.Add(legend6);
-            this.ECG3Chart.Location = new System.Drawing.Point(57, 421);
+            chartArea3.AxisX.MajorGrid.Interval = 0.2D;
+            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.OrangeRed;
+            chartArea3.AxisX.MajorGrid.LineWidth = 2;
+            chartArea3.AxisX.MinorGrid.Enabled = true;
+            chartArea3.AxisX.MinorGrid.Interval = 0.04D;
+            chartArea3.AxisX.MinorGrid.LineColor = System.Drawing.Color.OrangeRed;
+            chartArea3.Name = "ChartArea1";
+            this.ECG3Chart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.ECG3Chart.Legends.Add(legend3);
+            this.ECG3Chart.Location = new System.Drawing.Point(58, 505);
             this.ECG3Chart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ECG3Chart.Name = "ECG3Chart";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series6.Legend = "Legend1";
-            series6.Name = "Måling 3";
-            this.ECG3Chart.Series.Add(series6);
-            this.ECG3Chart.Size = new System.Drawing.Size(848, 114);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series3.Legend = "Legend1";
+            series3.Name = "Måling 3";
+            this.ECG3Chart.Series.Add(series3);
+            this.ECG3Chart.Size = new System.Drawing.Size(988, 163);
             this.ECG3Chart.TabIndex = 12;
             this.ECG3Chart.Text = "chart1";
             this.ECG3Chart.Visible = false;
@@ -268,7 +268,7 @@
             this.Puls1.AutoSize = true;
             this.Puls1.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Puls1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Puls1.Location = new System.Drawing.Point(938, 184);
+            this.Puls1.Location = new System.Drawing.Point(1073, 169);
             this.Puls1.Name = "Puls1";
             this.Puls1.Size = new System.Drawing.Size(48, 23);
             this.Puls1.TabIndex = 13;
@@ -279,7 +279,7 @@
             this.HRV1.AutoSize = true;
             this.HRV1.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HRV1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.HRV1.Location = new System.Drawing.Point(938, 230);
+            this.HRV1.Location = new System.Drawing.Point(1073, 215);
             this.HRV1.Name = "HRV1";
             this.HRV1.Size = new System.Drawing.Size(48, 23);
             this.HRV1.TabIndex = 14;
@@ -290,7 +290,7 @@
             this.Puls2.AutoSize = true;
             this.Puls2.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Puls2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Puls2.Location = new System.Drawing.Point(938, 302);
+            this.Puls2.Location = new System.Drawing.Point(1073, 350);
             this.Puls2.Name = "Puls2";
             this.Puls2.Size = new System.Drawing.Size(48, 23);
             this.Puls2.TabIndex = 15;
@@ -301,7 +301,7 @@
             this.Hrv2.AutoSize = true;
             this.Hrv2.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Hrv2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Hrv2.Location = new System.Drawing.Point(938, 349);
+            this.Hrv2.Location = new System.Drawing.Point(1073, 397);
             this.Hrv2.Name = "Hrv2";
             this.Hrv2.Size = new System.Drawing.Size(48, 23);
             this.Hrv2.TabIndex = 16;
@@ -312,7 +312,7 @@
             this.Hrv3.AutoSize = true;
             this.Hrv3.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Hrv3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Hrv3.Location = new System.Drawing.Point(938, 467);
+            this.Hrv3.Location = new System.Drawing.Point(1073, 551);
             this.Hrv3.Name = "Hrv3";
             this.Hrv3.Size = new System.Drawing.Size(48, 23);
             this.Hrv3.TabIndex = 18;
@@ -323,7 +323,7 @@
             this.Puls3.AutoSize = true;
             this.Puls3.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Puls3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Puls3.Location = new System.Drawing.Point(938, 421);
+            this.Puls3.Location = new System.Drawing.Point(1073, 505);
             this.Puls3.Name = "Puls3";
             this.Puls3.Size = new System.Drawing.Size(48, 23);
             this.Puls3.TabIndex = 17;
@@ -334,73 +334,73 @@
             this.puls1l.AutoSize = true;
             this.puls1l.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.puls1l.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.puls1l.Location = new System.Drawing.Point(1029, 179);
+            this.puls1l.Location = new System.Drawing.Point(1164, 164);
             this.puls1l.Name = "puls1l";
-            this.puls1l.Size = new System.Drawing.Size(44, 29);
+            this.puls1l.Size = new System.Drawing.Size(20, 29);
             this.puls1l.TabIndex = 19;
-            this.puls1l.Text = "hej";
+            this.puls1l.Text = "-";
             // 
             // hrv1l
             // 
             this.hrv1l.AutoSize = true;
             this.hrv1l.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hrv1l.ForeColor = System.Drawing.Color.Gold;
-            this.hrv1l.Location = new System.Drawing.Point(1029, 230);
+            this.hrv1l.Location = new System.Drawing.Point(1164, 215);
             this.hrv1l.Name = "hrv1l";
-            this.hrv1l.Size = new System.Drawing.Size(44, 29);
+            this.hrv1l.Size = new System.Drawing.Size(20, 29);
             this.hrv1l.TabIndex = 20;
-            this.hrv1l.Text = "hej";
+            this.hrv1l.Text = "-";
             // 
             // hrv2l
             // 
             this.hrv2l.AutoSize = true;
             this.hrv2l.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hrv2l.ForeColor = System.Drawing.Color.Gold;
-            this.hrv2l.Location = new System.Drawing.Point(1030, 349);
+            this.hrv2l.Location = new System.Drawing.Point(1165, 397);
             this.hrv2l.Name = "hrv2l";
-            this.hrv2l.Size = new System.Drawing.Size(44, 29);
+            this.hrv2l.Size = new System.Drawing.Size(20, 29);
             this.hrv2l.TabIndex = 22;
-            this.hrv2l.Text = "hej";
+            this.hrv2l.Text = "-";
             // 
             // puls2l
             // 
             this.puls2l.AutoSize = true;
             this.puls2l.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.puls2l.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.puls2l.Location = new System.Drawing.Point(1030, 302);
+            this.puls2l.Location = new System.Drawing.Point(1165, 350);
             this.puls2l.Name = "puls2l";
-            this.puls2l.Size = new System.Drawing.Size(44, 29);
+            this.puls2l.Size = new System.Drawing.Size(20, 29);
             this.puls2l.TabIndex = 21;
-            this.puls2l.Text = "hej";
+            this.puls2l.Text = "-";
             // 
             // hrv3l
             // 
             this.hrv3l.AutoSize = true;
             this.hrv3l.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hrv3l.ForeColor = System.Drawing.Color.Gold;
-            this.hrv3l.Location = new System.Drawing.Point(1029, 462);
+            this.hrv3l.Location = new System.Drawing.Point(1164, 546);
             this.hrv3l.Name = "hrv3l";
-            this.hrv3l.Size = new System.Drawing.Size(44, 29);
+            this.hrv3l.Size = new System.Drawing.Size(20, 29);
             this.hrv3l.TabIndex = 24;
-            this.hrv3l.Text = "hej";
+            this.hrv3l.Text = "-";
             // 
             // puls3l
             // 
             this.puls3l.AutoSize = true;
             this.puls3l.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.puls3l.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.puls3l.Location = new System.Drawing.Point(1030, 416);
+            this.puls3l.Location = new System.Drawing.Point(1165, 500);
             this.puls3l.Name = "puls3l";
-            this.puls3l.Size = new System.Drawing.Size(44, 29);
+            this.puls3l.Size = new System.Drawing.Size(20, 29);
             this.puls3l.TabIndex = 23;
-            this.puls3l.Text = "hej";
+            this.puls3l.Text = "-";
             // 
             // Medical_Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1133, 568);
+            this.ClientSize = new System.Drawing.Size(1364, 699);
             this.Controls.Add(this.hrv3l);
             this.Controls.Add(this.puls3l);
             this.Controls.Add(this.hrv2l);
