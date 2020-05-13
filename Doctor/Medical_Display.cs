@@ -147,6 +147,7 @@ namespace Doctor
             
             int counterMeasure = 0;
             double xtime = 0;
+            List<double> ecgLeadsList = new List<double>();
             Chart helperChart = null;
 
             ECG1Chart.Visible = true;
@@ -182,13 +183,16 @@ namespace Doctor
                 {
                     for (int i = 0; i < lead.ECGLeadValues.Length; i += 8)
                     {
-                        List<double> ecgLeadsList = new List<double>();
                         ecgLeadsList.Add(BitConverter.ToDouble(lead.ECGLeadValues, i)); // Converterer fra byte array til list double
-                        helperChart.Series[coutnerLeads].Points.AddXY(xtime,lead); // Tegner graf
-                        xtime += 0.002;
-
                     }
+                   
                     coutnerLeads++;
+                }
+
+                foreach (var values in ecgLeadsList)
+                {
+                    helperChart.Series[0].Points.AddXY(xtime, values); // Tegner graf
+                    xtime += 0.002;
                 }
 
                 counterMeasure++;
