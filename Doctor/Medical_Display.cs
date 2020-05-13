@@ -34,35 +34,9 @@ namespace Doctor
             InitializeComponent();
         }
 
-        public byte[] ReadCsvLead1()
+        private List<double> LeadReader1()
         {
-            //1. Lead
-            var csvTable1 = new DataTable();
-            using (var csvReader = new CsvReader(new StreamReader(System.IO.File.OpenRead(_pathLead1)), true))
-            {
-                csvTable1.Load(csvReader);
-
-            }
-            return ConvertDataTableToByteArray(csvTable1);
-        }
-
-        private byte[] ConvertDataTableToByteArray(DataTable dataTableConvert)
-        {
-            byte[] binaryDataResult = null;
-            using (MemoryStream memStream = new MemoryStream())
-            {
-                BinaryFormatter brFormatter = new BinaryFormatter();
-                dataTableConvert.RemotingFormat = System.Data.SerializationFormat.Binary;
-                brFormatter.Serialize(memStream, dataTableConvert);
-                binaryDataResult = memStream.ToArray();
-                
-            }
-            return binaryDataResult;
-        }
-
-        private List<double> LeadReader()
-        {
-            using (var reader = new StreamReader(@"C:\Users\ina-m\OneDrive\Dokumenter\4. semester\Projekt\EKG-signaler\1Lead.csv"))
+            using (var reader = new StreamReader(@"C:\Users\Mie\Cloud\MiesTing\Universitet - ST\4.Semester ST\4. Semesterprojekt\Software\ECG_Doctor_System_New\Data_layer\1Lead.csv"))
             {
                 List<double> listA = new List<double>();
                 var h1= reader.ReadLine();
@@ -71,8 +45,44 @@ namespace Doctor
                 {
                     var line = reader.ReadLine();
                     var values = line.Split(',');
-     
-                    listA.Add(Convert.ToDouble((values[1]))); //Prøv parse i stedet for konvertering til double 
+                    listA.Add(Convert.ToDouble(Double.Parse(values[1].Replace('.', ',')))); //Prøv parse i stedet for konvertering til double 
+                    
+                }
+
+                return listA;
+            }
+        }
+
+        private List<double> LeadReader2()
+        {
+            using (var reader = new StreamReader(@"C:\Users\Mie\Cloud\MiesTing\Universitet - ST\4.Semester ST\4. Semesterprojekt\Software\ECG_Doctor_System_New\Data_layer\2Lead.csv"))
+            {
+                List<double> listA = new List<double>();
+                var h1 = reader.ReadLine();
+                var h2 = reader.ReadLine();
+                while (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+                    var values = line.Split(',');
+                    listA.Add(Convert.ToDouble(Double.Parse(values[1].Replace('.', ',')))); //Prøv parse i stedet for konvertering til double 
+
+                }
+
+                return listA;
+            }
+        }
+        private List<double> LeadReader3()
+        {
+            using (var reader = new StreamReader(@"C:\Users\Mie\Cloud\MiesTing\Universitet - ST\4.Semester ST\4. Semesterprojekt\Software\ECG_Doctor_System_New\Data_layer\3Lead.csv"))
+            {
+                List<double> listA = new List<double>();
+                var h1 = reader.ReadLine();
+                var h2 = reader.ReadLine();
+                while (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+                    var values = line.Split(',');
+                    listA.Add(Convert.ToDouble(Double.Parse(values[1].Replace('.', ',')))); //Prøv parse i stedet for konvertering til double 
 
                 }
 
@@ -101,25 +111,30 @@ namespace Doctor
 
         private void DateB_Click(object sender, EventArgs e)
         {
+            List<double> lead1Liste = LeadReader1();
+            List<double> lead2Liste = LeadReader2();
+            List<double> lead3Liste = LeadReader3();
+            double xtid = 0;
+            ECG1Chart.Visible = true;
+            foreach (var data in lead1Liste)
+            {
+                ECG1Chart.Series[0].Points.AddXY(xtid, data);
+                xtid += 0.002;
+            }
+
+            foreach (var data in lead2Liste)
+            {
+                ECG1Chart.Series[0].Points.AddXY(xtid, data);
+                xtid += 0.002;
+            }
+            foreach (var data in lead3Liste)
+            {
+                ECG1Chart.Series[0].Points.AddXY(xtid, data);
+                xtid += 0.002;
+            }
+
+            //Nedenstående kode er den kode som skal bruges når vi kan hente ned fra databasen
             //int Id = 0;
-            List<double> liste = LeadReader();
-
-
-            //byte[] test = ReadCsvLead1();
-            //double xtid = 0;
-            //List<double> ecgLeadsList = new List<double>();
-            //ECG1Chart.Visible = true;
-            //for (int i = 2; i < test.Length-4; i += 8)
-            //{
-            //    ecgLeadsList.Add(BitConverter.ToDouble(test, i));
-            //}
-
-            //foreach (var VARIABLE in ecgLeadsList)
-            //{
-            //    ECG1Chart.Series[0].Points.AddXY(xtid, VARIABLE);
-            //    xtid += 0.005;
-            //}
-
 
             //for (int i = 0; i < _patient.Count; i++)
             //{
@@ -171,10 +186,8 @@ namespace Doctor
             //        {
             //            List<double> ecgLeadsList = new List<double>();
             //            //ecgLeadsList.Add(BitConverter.ToDouble(lead.ECGLeadValues, i)); // Converterer fra byte array til list double
-            //            ecgLeadsList.Add(BitConverter.ToDouble(test, i));
-
             //            //helperChart.Series[coutnerLeads].Points.DataBindXY(ecgLeadsList); // Tegner graf
-            //            helperChart.Series[coutnerLeads].Points.DataBindXY(test);
+            //            
             //        }
 
             //        coutnerLeads++;
