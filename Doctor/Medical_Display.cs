@@ -134,7 +134,8 @@ namespace Doctor
 
             for (int i = 0; i < _patient.Count; i++)
             {
-                if (Convert.ToDateTime(DateLB.SelectedItem) == _patient[i].Date)
+                //if (Convert.ToDateTime(DateLB.SelectedItem) == _patient[i].Date)
+                    if(DateLB.SelectedItem.Equals(_patient[i].Date.ToString()))
                 {
                     Id = _patient[i].PatientMeasurementId;
                 }
@@ -183,7 +184,7 @@ namespace Doctor
                     {
                         List<double> ecgLeadsList = new List<double>();
                         ecgLeadsList.Add(BitConverter.ToDouble(lead.ECGLeadValues, i)); // Converterer fra byte array til list double
-                        helperChart.Series[coutnerLeads].Points.AddXY(xtime,ecgLeadsList); // Tegner graf
+                        helperChart.Series[coutnerLeads].Points.AddXY(xtime,lead); // Tegner graf
                         xtime += 0.002;
 
                     }
