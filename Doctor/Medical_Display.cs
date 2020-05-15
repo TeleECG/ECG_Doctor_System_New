@@ -12,7 +12,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 using Data_layer;
 using Data_layer.Data;
 
-
+// Reference til eventhandler: https://stackoverflow.com/questions/13584061/how-to-enable-zooming-in-microsoft-chart-control-by-using-mouse-wheel/14542854
 namespace Doctor
 {
     public partial class Medical_Display : Form
@@ -27,63 +27,6 @@ namespace Doctor
             _teleMedDb = teleMedDb;
             InitializeComponent();
         }
-
-       
-        //private List<double> LeadReader1()
-        //{
-        //    using (var reader = new StreamReader(@"C:\Users\Mie\Cloud\MiesTing\Universitet - ST\4.Semester ST\4. Semesterprojekt\Software\ECG_Doctor_System_New\Data_layer\1Lead.csv"))
-        //    {
-        //        List<double> listA = new List<double>();
-        //        var h1= reader.ReadLine();
-        //       var h2 =  reader.ReadLine();
-        //        while (!reader.EndOfStream)
-        //        {
-        //            var line = reader.ReadLine();
-        //            var values = line.Split(',');
-        //            listA.Add(Convert.ToDouble(Double.Parse(values[1].Replace('.', ',')))); //Prøv parse i stedet for konvertering til double 
-                    
-        //        }
-
-        //        return listA;
-        //    }
-        //}
-
-        //private List<double> LeadReader2()
-        //{
-        //    using (var reader = new StreamReader(@"C:\Users\Mie\Cloud\MiesTing\Universitet - ST\4.Semester ST\4. Semesterprojekt\Software\ECG_Doctor_System_New\Data_layer\2Lead.csv"))
-        //    {
-        //        List<double> listA = new List<double>();
-        //        var h1 = reader.ReadLine();
-        //        var h2 = reader.ReadLine();
-        //        while (!reader.EndOfStream)
-        //        {
-        //            var line = reader.ReadLine();
-        //            var values = line.Split(',');
-        //            listA.Add(Convert.ToDouble(Double.Parse(values[1].Replace('.', ',')))); //Prøv parse i stedet for konvertering til double 
-
-        //        }
-
-        //        return listA;
-        //    }
-        //}
-        //private List<double> LeadReader3()
-        //{
-        //    using (var reader = new StreamReader(@"C:\Users\Mie\Cloud\MiesTing\Universitet - ST\4.Semester ST\4. Semesterprojekt\Software\ECG_Doctor_System_New\Data_layer\3Lead.csv"))
-        //    {
-        //        List<double> listA = new List<double>();
-        //        var h1 = reader.ReadLine();
-        //        var h2 = reader.ReadLine();
-        //        while (!reader.EndOfStream)
-        //        {
-        //            var line = reader.ReadLine();
-        //            var values = line.Split(',');
-        //            listA.Add(Convert.ToDouble(Double.Parse(values[1].Replace('.', ',')))); //Prøv parse i stedet for konvertering til double 
-
-        //        }
-
-        //        return listA;
-        //    }
-        //}
 
         private void SearchB_Click(object sender, EventArgs e)
         {
@@ -106,36 +49,12 @@ namespace Doctor
 
         private void DateB_Click(object sender, EventArgs e)
         {
-           
-            //List<double> lead1Liste = LeadReader1();
-            //List<double> lead2Liste = LeadReader2();
-            //List<double> lead3Liste = LeadReader3();
-            //double xtid = 0;
-            //ECG1Chart.Visible = true;
-            //foreach (var data in lead1Liste)
-            //{
-            //    ECG1Chart.Series[0].Points.AddXY(xtid, data);
-            //    xtid += 0.002;
-            //}
-
-            //foreach (var data in lead2Liste)
-            //{
-            //    ECG1Chart.Series[0].Points.AddXY(xtid, data);
-            //    xtid += 0.002;
-            //}
-            //foreach (var data in lead3Liste)
-            //{
-            //    ECG1Chart.Series[0].Points.AddXY(xtid, data);
-            //    xtid += 0.002;
-            //}
-
-            //Nedenstående kode er den kode som skal bruges når vi kan hente ned fra databasen
+            
             int Id = 0;
 
             for (int i = 0; i < _patient.Count; i++)
             {
-                //if (Convert.ToDateTime(DateLB.SelectedItem) == _patient[i].Date)
-                    if(DateLB.SelectedItem.Equals(_patient[i].Date.ToString()))
+                if(DateLB.SelectedItem.Equals(_patient[i].Date.ToString()))
                 {
                     Id = _patient[i].PatientMeasurementId;
                 }
@@ -143,15 +62,21 @@ namespace Doctor
 
             var _patientMeasurement = _teleMedDb.GetMeasurementsAndLeads(Id);
 
-            _ecgMeasurementsList = _patientMeasurement.ECGMeasurements.ToList(); //Høre lige Jesper om dette er rigtigt
+            _ecgMeasurementsList = _patientMeasurement.ECGMeasurements.ToList(); 
             
             int counterMeasure = 0;
            
             Chart helperChart = null;
 
             ECG1Chart.Visible = true;
+            ECG1Chart.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
+            ECG1Chart.MouseWheel += chart_MouseWheel;
             ECG2Chart.Visible = true;
+            ECG2Chart.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
+            ECG2Chart.MouseWheel += chart_MouseWheel;
             ECG3Chart.Visible = true;
+            ECG3Chart.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
+            ECG3Chart.MouseWheel += chart_MouseWheel;
 
             foreach (var measure in _ecgMeasurementsList) // Vi kigger på hver måling 
             {
@@ -199,6 +124,39 @@ namespace Doctor
 
                 counterMeasure++;
             }
+        }
+
+        // Her er referencen brugt
+        private void chart_MouseWheel(object sender, MouseEventArgs e)
+        {
+            var chart = (Chart)sender;
+            var xAxis = chart.ChartAreas[0].AxisX;
+            var yAxis = chart.ChartAreas[0].AxisY;
+
+            try
+            {
+                if (e.Delta < 0) // Scrolled down.
+                {
+                    xAxis.ScaleView.ZoomReset();
+                    yAxis.ScaleView.ZoomReset();
+                }
+                else if (e.Delta > 0) // Scrolled up.
+                {
+                    var xMin = xAxis.ScaleView.ViewMinimum;
+                    var xMax = xAxis.ScaleView.ViewMaximum;
+                    var yMin = yAxis.ScaleView.ViewMinimum;
+                    var yMax = yAxis.ScaleView.ViewMaximum;
+
+                    var posXStart = xAxis.PixelPositionToValue(e.Location.X) - (xMax - xMin) / 4;
+                    var posXFinish = xAxis.PixelPositionToValue(e.Location.X) + (xMax - xMin) / 4;
+                    var posYStart = yAxis.PixelPositionToValue(e.Location.Y) - (yMax - yMin) / 4;
+                    var posYFinish = yAxis.PixelPositionToValue(e.Location.Y) + (yMax - yMin) / 4;
+
+                    xAxis.ScaleView.Zoom(posXStart, posXFinish);
+                    yAxis.ScaleView.Zoom(posYStart, posYFinish);
+                }
+            }
+            catch { }
         }
     }
 }

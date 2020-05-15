@@ -128,7 +128,7 @@
             this.DateB.BackColor = System.Drawing.Color.Green;
             this.DateB.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DateB.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.DateB.Location = new System.Drawing.Point(486, 130);
+            this.DateB.Location = new System.Drawing.Point(486, 114);
             this.DateB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DateB.Name = "DateB";
             this.DateB.Size = new System.Drawing.Size(115, 51);
