@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -12,7 +13,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 using Data_layer;
 using Data_layer.Data;
 
-// Reference til eventhandler: https://stackoverflow.com/questions/13584061/how-to-enable-zooming-in-microsoft-chart-control-by-using-mouse-wheel/14542854
+// Reference til eventhandler: https://www.codeproject.com/Articles/1276879/MSChart-Extension-Zoom-and-Pan-Control-Version-2-2
 namespace Doctor
 {
     public partial class Medical_Display : Form
@@ -26,6 +27,20 @@ namespace Doctor
         {
             _teleMedDb = teleMedDb;
             InitializeComponent();
+            ECG1Chart.EnableZoomAndPanControls(ChartCursorSelected, ChartCursorMoved,
+                zoomChanged,
+                new ChartOption()
+                {
+                    ContextMenuAllowToHideSeries = true,
+                    XAxisPrecision = 0,
+                    YAxisPrecision = 2
+                });
+
+            // Client interface BUG:
+            // OnAxisViewChang* is only called on Cursor_MouseUp, 
+            //  so the following events are never raised
+            ECG1Chart.AxisViewChanging += OnAxisViewChanges;
+            ECG1Chart.AxisViewChanged += OnAxisViewChanges;
         }
 
         private void SearchB_Click(object sender, EventArgs e)
@@ -69,14 +84,14 @@ namespace Doctor
             Chart helperChart = null;
 
             ECG1Chart.Visible = true;
-            ECG1Chart.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
-            ECG1Chart.MouseWheel += chart_MouseWheel;
+            //ECG1Chart.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
+            //ECG1Chart.MouseWheel += chart_MouseWheel;
             ECG2Chart.Visible = true;
-            ECG2Chart.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
-            ECG2Chart.MouseWheel += chart_MouseWheel;
+            //ECG2Chart.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
+            //ECG2Chart.MouseWheel += chart_MouseWheel;
             ECG3Chart.Visible = true;
-            ECG3Chart.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
-            ECG3Chart.MouseWheel += chart_MouseWheel;
+            //ECG3Chart.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
+            //ECG3Chart.MouseWheel += chart_MouseWheel;
 
             foreach (var measure in _ecgMeasurementsList) // Vi kigger på hver måling 
             {
@@ -126,37 +141,58 @@ namespace Doctor
             }
         }
 
-        // Her er referencen brugt
-        private void chart_MouseWheel(object sender, MouseEventArgs e)
+        private void OnAxisViewChanges(object sender, ViewEventArgs viewEventArgs)
         {
-            var chart = (Chart)sender;
-            var xAxis = chart.ChartAreas[0].AxisX;
-            var yAxis = chart.ChartAreas[0].AxisY;
-
-            try
-            {
-                if (e.Delta < 0) // Scrolled down.
-                {
-                    xAxis.ScaleView.ZoomReset();
-                    yAxis.ScaleView.ZoomReset();
-                }
-                else if (e.Delta > 0) // Scrolled up.
-                {
-                    var xMin = xAxis.ScaleView.ViewMinimum;
-                    var xMax = xAxis.ScaleView.ViewMaximum;
-                    var yMin = yAxis.ScaleView.ViewMinimum;
-                    var yMax = yAxis.ScaleView.ViewMaximum;
-
-                    var posXStart = xAxis.PixelPositionToValue(e.Location.X) - (xMax - xMin) / 4;
-                    var posXFinish = xAxis.PixelPositionToValue(e.Location.X) + (xMax - xMin) / 4;
-                    var posYStart = yAxis.PixelPositionToValue(e.Location.Y) - (yMax - yMin) / 4;
-                    var posYFinish = yAxis.PixelPositionToValue(e.Location.Y) + (yMax - yMin) / 4;
-
-                    xAxis.ScaleView.Zoom(posXStart, posXFinish);
-                    yAxis.ScaleView.Zoom(posYStart, posYFinish);
-                }
-            }
-            catch { }
+            Debug.Fail("Don't worry, this event is never raised.");
         }
+
+        private void ChartCursorSelected(Chart sender, ChartCursor e)
+        {
+            //txtChartSelect.Text = e.X.ToString("F4") + ", " + e.Y.ToString("F4");
+            //PointF diff = sender.CursorsDiff();
+            //txtCursorDelta.Text = diff.X.ToString("F4") + ", " + diff.Y.ToString("F4");
+        }
+
+        private void ChartCursorMoved(Chart sender, ChartCursor e)
+        {
+            //txtChartValue.Text = e.X.ToString("F4") + ", " + e.Y.ToString("F4");
+        }
+
+        private void zoomChanged(Chart sender)
+        {
+        }
+
+        // Her er referencen brugt
+        //private void chart_MouseWheel(object sender, MouseEventArgs e)
+        //{
+        //    var chart = (Chart)sender;
+        //    var xAxis = chart.ChartAreas[0].AxisX;
+        //    var yAxis = chart.ChartAreas[0].AxisY;
+
+        //    try
+        //    {
+        //        if (e.Delta < 0) // Scrolled down.
+        //        {
+        //            xAxis.ScaleView.ZoomReset();
+        //            yAxis.ScaleView.ZoomReset();
+        //        }
+        //        else if (e.Delta > 0) // Scrolled up.
+        //        {
+        //            var xMin = xAxis.ScaleView.ViewMinimum;
+        //            var xMax = xAxis.ScaleView.ViewMaximum;
+        //            var yMin = yAxis.ScaleView.ViewMinimum;
+        //            var yMax = yAxis.ScaleView.ViewMaximum;
+
+        //            var posXStart = xAxis.PixelPositionToValue(e.Location.X) - (xMax - xMin) / 4;
+        //            var posXFinish = xAxis.PixelPositionToValue(e.Location.X) + (xMax - xMin) / 4;
+        //            var posYStart = yAxis.PixelPositionToValue(e.Location.Y) - (yMax - yMin) / 4;
+        //            var posYFinish = yAxis.PixelPositionToValue(e.Location.Y) + (yMax - yMin) / 4;
+
+        //            xAxis.ScaleView.Zoom(posXStart, posXFinish);
+        //            yAxis.ScaleView.Zoom(posYStart, posYFinish);
+        //        }
+        //    }
+        //    catch { }
+        //}
     }
 }
