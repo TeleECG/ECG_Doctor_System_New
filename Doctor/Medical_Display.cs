@@ -27,20 +27,20 @@ namespace Doctor
         {
             _teleMedDb = teleMedDb;
             InitializeComponent();
-            ECG1Chart.EnableZoomAndPanControls(ChartCursorSelected, ChartCursorMoved,
-                zoomChanged,
-                new ChartOption()
-                {
-                    ContextMenuAllowToHideSeries = true,
-                    XAxisPrecision = 0,
-                    YAxisPrecision = 2
-                });
+            //ECG1Chart.EnableZoomAndPanControls(ChartCursorSelected, ChartCursorMoved,
+            //    zoomChanged,
+            //    new ChartOption()
+            //    {
+            //        ContextMenuAllowToHideSeries = true,
+            //        XAxisPrecision = 0,
+            //        YAxisPrecision = 2
+            //    });
 
             // Client interface BUG:
             // OnAxisViewChang* is only called on Cursor_MouseUp, 
             //  so the following events are never raised
-            ECG1Chart.AxisViewChanging += OnAxisViewChanges;
-            ECG1Chart.AxisViewChanged += OnAxisViewChanges;
+            //ECG1Chart.AxisViewChanging += OnAxisViewChanges;
+            //ECG1Chart.AxisViewChanged += OnAxisViewChanges;
         }
 
         private void SearchB_Click(object sender, EventArgs e)
@@ -141,26 +141,26 @@ namespace Doctor
             }
         }
 
-        private void OnAxisViewChanges(object sender, ViewEventArgs viewEventArgs)
-        {
-            Debug.Fail("Don't worry, this event is never raised.");
-        }
+        //private void OnAxisViewChanges(object sender, ViewEventArgs viewEventArgs)
+        //{
+        //    Debug.Fail("Don't worry, this event is never raised.");
+        //}
 
-        private void ChartCursorSelected(Chart sender, ChartCursor e)
-        {
-            //txtChartSelect.Text = e.X.ToString("F4") + ", " + e.Y.ToString("F4");
-            //PointF diff = sender.CursorsDiff();
-            //txtCursorDelta.Text = diff.X.ToString("F4") + ", " + diff.Y.ToString("F4");
-        }
+        //private void ChartCursorSelected(Chart sender, ChartCursor e)
+        //{
+        //    //txtChartSelect.Text = e.X.ToString("F4") + ", " + e.Y.ToString("F4");
+        //    //PointF diff = sender.CursorsDiff();
+        //    //txtCursorDelta.Text = diff.X.ToString("F4") + ", " + diff.Y.ToString("F4");
+        //}
 
-        private void ChartCursorMoved(Chart sender, ChartCursor e)
-        {
-            //txtChartValue.Text = e.X.ToString("F4") + ", " + e.Y.ToString("F4");
-        }
+        //private void ChartCursorMoved(Chart sender, ChartCursor e)
+        //{
+        //    //txtChartValue.Text = e.X.ToString("F4") + ", " + e.Y.ToString("F4");
+        //}
 
-        private void zoomChanged(Chart sender)
-        {
-        }
+        //private void zoomChanged(Chart sender)
+        //{
+        //}
 
         // Her er referencen brugt
         //private void chart_MouseWheel(object sender, MouseEventArgs e)
